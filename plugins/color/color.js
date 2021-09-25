@@ -23,12 +23,15 @@ exports.process = function (getData, input) {
         red = parseInt(rgbMatch[1], 10);
         green = parseInt(rgbMatch[2], 10);
         blue = parseInt(rgbMatch[3], 10);
+        if (red > 255) red = 255;
+        if (green > 255) green = 255;
+        if (blue > 255) blue = 255;
     } else {
         red = parseInt(input.substring(1, 3), 16);
         green = parseInt(input.substring(3, 5), 16);
         blue = parseInt(input.substring(5, 7), 16);
     }
-
+    
     let redHex = red.toString(16).padStart(2, '0').toUpperCase();
     let greenHex = green.toString(16).padStart(2, '0').toUpperCase();
     let blueHex = blue.toString(16).padStart(2, '0').toUpperCase();
