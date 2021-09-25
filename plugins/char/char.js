@@ -1,26 +1,15 @@
 exports.uuid='3ff0313e-384a-43aa-85e0-098d6fe38a3a';
 exports.name='Char';
-exports.description ={'en':'Display various encodings of char','zh-Hans':'显示单个Unicode字符各种编码'};
+exports.description ={'en':'Display various encodings of char.','zh-Hans':'显示单个Unicode字符各种编码。'};
 exports.type = 'pattern';
 exports.command = null;
 exports.pattern = function (input) {
     return 1 === Array.from(input).length;
 }
 
-function splitString(str) {
-    let s = str.match(/(.{1,2})/g);
-    let result = '';
-    for (let key in s) {
-        result += s[key];
-        result += ' ';
-    }
-    return result.trim();
-}
-
 exports.process = function (getData, input) {
 
     let data = [];
-
     let codepoint = input.codePointAt(0);
     let item_codepoint = {};
     item_codepoint.label = 'Code point';
@@ -104,4 +93,14 @@ exports.process = function (getData, input) {
 
     getData(data);
 
+}
+
+function splitString(str) {
+    let s = str.match(/(.{1,2})/g);
+    let result = '';
+    for (let key in s) {
+        result += s[key];
+        result += ' ';
+    }
+    return result.trim();
 }

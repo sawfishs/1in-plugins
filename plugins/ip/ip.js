@@ -1,6 +1,6 @@
 exports.uuid = '3613d064-c366-4bc4-a230-06a1114c3c8a';
 exports.name = 'IP';
-exports.description = {'en': 'Get external IP address', 'zh-Hans': '获取外网IP地址'};
+exports.description = {'en': 'Get external IP address.', 'zh-Hans': '获取外网IP地址。'};
 exports.type = 'command';
 exports.command = 'ip';
 exports.pattern = null;
