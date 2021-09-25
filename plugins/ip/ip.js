@@ -1,6 +1,6 @@
-exports.uuid='3613d064-c366-4bc4-a230-06a1114c3c8a';
-exports.name='IP';
-exports.description ={'en':'Get external IP address','zh-Hans':'获取外网IP地址'};
+exports.uuid = '3613d064-c366-4bc4-a230-06a1114c3c8a';
+exports.name = 'IP';
+exports.description = {'en': 'Get external IP address', 'zh-Hans': '获取外网IP地址'};
 exports.type = 'command';
 exports.command = 'ip';
 exports.pattern = null;
@@ -13,19 +13,28 @@ exports.process = function (getData) {
     const options = {
         host: 'icanhazip.com',
     }
-    try {
-        const req = https.request(options, res => {
-            res.on('data', function (chunk) {
+
+    const req = https.request(options, res => {
+        res.on('data', function (chunk) {
                 item.label = 'External IP';
                 item.content = ('' + chunk).trim();
                 item.type = 'ip';
                 item.value = item.content;
                 data.push(item)
                 getData(data);
-            })
-        })
-        req.end()
-    } catch (e) {
+            }
+        )
+    })
+    req.on('error', error => {
+        item.label = 'Error';
+        item.content = error.message;
+        item.type = 'error';
+        item.value = item.content;
+        data.push(item)
+        getData(data);
+    })
+    req.end(() => {
 
-    }
+    })
+
 }
