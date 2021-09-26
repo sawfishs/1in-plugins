@@ -1,6 +1,6 @@
 const PluginBase = require('../base.js');
 const uuid = 'a4d02a30-a1b1-44cd-bf26-19190bff8521';
-const name = 'plugin';
+const name = 'Plugin';
 const description = {'en': 'Plugins manager.', 'zh-Hans': '插件管理器。'};
 const summary = '';
 const type = PluginBase.plugin_type.LEADS;
