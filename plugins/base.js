@@ -32,8 +32,8 @@ let Plugin = function (uuid, name, description, summary, type, command, pattern,
 
 };
 
-const DataItem = function (label, content, type = this.item_type.TEXT, value = '',
-                          summary = '', style = this.item_style.LIST) {
+const DataItem = function (label, content, type = item_type.TEXT, value = '',
+                          summary = '', style = item_style.LIST) {
 
     let item = {};
     item.label = label;
