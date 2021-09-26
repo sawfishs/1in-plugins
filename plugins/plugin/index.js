@@ -59,11 +59,15 @@ const process = function (callback, leadsPara, pluginsHome) {
         git.Repository.open(pluginsHome).then(function (repository) {
             repo = repository;
         }).then(function () {
-            repo.fetchAll(null);
+            repo.fetchAll(null).catch(function (err){
+                throw 'break';
+            });
         }).then(function () {
             repo.mergeBranches('main', 'origin/' + 'main',
                 null, null,
-                null, null);
+                null, null).catch(function (err){
+                throw 'break';
+            });
         }).then(function () {
             data.push(PluginBase.BuildInfoItem('Plugins update successfully.'));
             callback(data);
