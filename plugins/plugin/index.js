@@ -99,8 +99,8 @@ const process = function (callback, leadsPara, pluginsHome) {
                     dirname: pluginsHome + '/plugins',
                     filter: /index\.js$/,
                     resolve: function (plugin) {
-                        let item = PluginBase.BuildItem(plugin.handle.name, plugin.handle.description['zh-Hans'],
-                            PluginBase.item_type.PLUGIN, plugin.handle.uuid, plugin.handle.summary);
+                        let item = PluginBase.BuildItem(plugin.name, plugin.description['zh-Hans'],
+                            PluginBase.item_type.PLUGIN, plugin.uuid, plugin.summary);
                         data.push(item);
                     }
                 });
@@ -114,4 +114,4 @@ const process = function (callback, leadsPara, pluginsHome) {
 
 }
 
-exports.handle = new PluginBase.BuildPlugin(uuid, name, description, summary, type, command, pattern, process);
+module.exports = new PluginBase.BuildPlugin(uuid, name, description, summary, type, command, pattern, process);

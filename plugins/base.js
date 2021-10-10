@@ -19,7 +19,7 @@ const item_style = {
     HTML: 'html',
 };
 
-let Plugin = function (uuid, name, description, summary, type, command, pattern, process) {
+const Plugin = function (uuid, name, description, summary, type, command, pattern, process) {
 
     this.uuid = uuid;
     this.name = name;

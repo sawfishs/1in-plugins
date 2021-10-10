@@ -91,4 +91,4 @@ const process = function (callback, input) {
 
 }
 
-exports.handle = new PluginBase.BuildPlugin(uuid, name, description, summary, type, command, pattern, process);
+module.exports = new PluginBase.BuildPlugin(uuid, name, description, summary, type, command, pattern, process);
